@@ -18,7 +18,6 @@ container.style.width = 700 * (lis.length / 5 + 1) + 'px';
 let left = document.querySelectorAll('.control-left');
 let right = document.querySelectorAll('.control-right');
 let max1 = Math.trunc(lis.length / 5);
-// alert(max1);
 function slider(container, right, left, max, distance, time, count, arr) {
     let index = 0;
     if (count) {

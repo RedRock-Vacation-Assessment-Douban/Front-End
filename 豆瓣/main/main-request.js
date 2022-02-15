@@ -8,7 +8,7 @@ let name2 = document.querySelectorAll('#container2orgin .clone-span1');
 let img3 = document.querySelectorAll('#container3orgin img');
 let name3 = document.querySelectorAll('#container3orgin .clone-span1');
 let reviewarea = document.querySelector('.reviews-bd');
-let basicURL = 'http://127.0.0.1:5500';
+let basicURL = 'poordouban.work';
 
 function clone(container, begin, end, arr) {
   for (let i = begin; i < end; i++) {

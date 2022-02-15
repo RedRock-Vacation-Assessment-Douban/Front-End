@@ -4,7 +4,7 @@ let myself = document.querySelector('.myself');
 let quit = document.getElementById('quit');
 let mine = document.getElementById('mine');
 let token = sessionStorage.getItem('token');
-let basicURL = 'poordouban.work';
+let basicURL = '';
 if (username) {
     login.innerHTML = username + '你好！';
     login.href = '#';

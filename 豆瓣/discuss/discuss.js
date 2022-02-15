@@ -8,7 +8,7 @@ let submit = document.querySelector('.submit');
 let texts = document.querySelectorAll('textarea');
 let mytoken = sessionStorage.getItem('token');
 let num=sessionStorage.getItem('num');
-let basicURL='poordouban.work';
+let basicURL='';
 //影评、讨论双功能
 let png=document.querySelector('header img');
 if(sessionStorage.getItem('iscommend')){

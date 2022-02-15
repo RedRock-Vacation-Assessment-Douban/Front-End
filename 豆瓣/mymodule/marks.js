@@ -15,12 +15,12 @@
     }
     clear=()=>{
         Array.from(this.stars).map(star=>{
-            star.src="poordouban.work/mymodule/nostar.png"
+            star.src="/mymodule/nostar.png"
         })
     }
     choose=(id)=>{
         Array.from(this.stars).filter(star=>star.id<=id).map(star=>{
-            star.src='poordouban.work/mymodule/yellowstar.png';
+            star.src='/mymodule/yellowstar.png';
         })
     }
     changeon=(e)=>{

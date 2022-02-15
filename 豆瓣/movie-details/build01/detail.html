@@ -20,13 +20,14 @@
             <div class="tags-switch">
                 <input type="radio" name="see" id="wanttowatch"><label for="wanttowatch">想看</label>
                 <input type="radio" name="see" id="havewatch"><label for="havewatch">看过</label>
+                给个评分吧：<div id="marks2"></div>
                 <a href="#">缩起</a>
             </div>
             <div class="myform">
                 <li>标签（多个标签用空格分隔）：</li>
                 <input type="text" id="blankinput">
                 <li id="brief">简短评论：</li>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="" id="shortcommend" cols="30" rows="10"></textarea>
             </div>
             <div id="submit">
                 <input type="submit" id="save">
@@ -131,6 +132,7 @@
                     <div class="ui1">
                         <a href="#">想看</a>
                         <a href="#">看过</a>
+                        评价：<div id="marks1"></div>
                     </div>
                     <div class="ui2">
                         <a href="#">写短评</a>

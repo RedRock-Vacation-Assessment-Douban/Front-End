@@ -1,6 +1,7 @@
 import {
     Star
 } from '../mymodule/stars.js'
+import {Marks} from '../mymodule/marks.js'
 //接受电影数据
 let movie = JSON.parse(sessionStorage.getItem('movie')).data;
 //电影图、电影名
@@ -140,16 +141,37 @@ btns[1].addEventListener('click',()=> {
 
 //查看影人
 let imgs = document.querySelectorAll('.performer img');
-imgs[0].addEventListener('click', () => {
-    fetch('http://42.192.155.29:8080/celebrity/1', {
-            method: 'GET'
-        }).then(res => res.json())
-        .then(res => {
-            sessionStorage.setItem('performer', JSON.stringify(res))
-            window.location.replace(basicURL+'/performer/build/performer.html')
-        })
+[...imgs].map((image,index)=>{
+    image.addEventListener('click', () => {
+        fetch(`http://42.192.155.29:8080/movie/${movieid}/${index+1}`, {
+                method: 'GET'
+            }).then(res => res.json())
+            .then(res => {
+                sessionStorage.setItem('performer', JSON.stringify(res))
+                window.location.replace(basicURL+'/performer/build/performer.html')
+            })
+    })
 })
-//想看、看过、短评
+//评分
+const tomark1=new Marks('marks1',0.5,-1)
+tomark1.start();
+const tomark2=new Marks('marks2',0.5,-1)
+tomark2.start();
+Array.from(tomark1.stars).map(star=>star.addEventListener('click',()=>{
+    springwindow.style.visibility='visible';
+    smalltips.innerHTML='添加收藏：我看过这部电影';
+    havewatch.checked='checked';
+    tomark2.num=tomark1.num
+    tomark2.changeoff();
+    tomark1.stop();
+}))
+//短评
+btns[0].addEventListener('click',()=>{
+    springwindow.style.visibility='visible';
+    smalltips.innerHTML='添加收藏：写短评';
+    havewatch.checked='checked';
+})
+//想看、看过
 let springwindow=document.querySelector('.springwindow');
 let gact=document.querySelector('.gact')
 let wanttowatch=document.getElementById('wanttowatch');
@@ -158,6 +180,7 @@ let mytoken=sessionStorage.getItem('token');
 let save=document.getElementById('save');
 let movieid=movie.Id;
 let smalltips=document.querySelector('.smalltips');
+let shortcommend=document.getElementById('shortcommend');
 save.addEventListener('click',()=>{
     if(mytoken){
         if(wanttowatch.checked){
@@ -176,6 +199,20 @@ save.addEventListener('click',()=>{
                 }
             }).then(res=>res.json())
             .then(res=>alert('添加看过'+res.info))
+            if(shortcommend.value){
+                let formdata=new FormData();
+                formdata.append('context',shortcommend.value);
+                formdata.append('starNum',(tomark2.num+1)*2);
+                formdata.append('status','看过')
+                fetch('http://42.192.155.29:8080/shortcomment/'+movieid,{
+                    method:'POST',
+                    headers:{
+                        token:mytoken
+                    },
+                    body:formdata
+                }).then(res=>res.json())
+                .then(res=>alert('添加短评'+res.info))
+            }
         }else{
             alert('请完成表单！')
         }
@@ -188,10 +225,12 @@ let ui=document.querySelectorAll('.ui1 a');
 ui[0].addEventListener('click',()=>{
     springwindow.style.visibility='visible';
     smalltips.innerHTML='添加收藏：我想看这部电影';
+    wanttowatch.checked='checked';
 })
 ui[1].addEventListener('click',()=>{
     springwindow.style.visibility='visible';
     smalltips.innerHTML='添加收藏：我看过这部电影';
+    havewatch.checked='checked';
 })
 //动态更新背景
 let wrapper=document.querySelector('.wrapper');

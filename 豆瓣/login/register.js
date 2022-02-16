@@ -1,7 +1,6 @@
 let options = document.querySelectorAll('.login-hd li');
 let form1 = document.querySelectorAll('.form1')[0];
 let form2 = document.querySelectorAll('.form2')[0];
-// console.log(options[0].classList.contains('focus'));
 options[0].addEventListener('click', (e) => {
     if (!e.target.classList.contains('focus')) {
         e.target.classList.add('focus')
@@ -65,6 +64,7 @@ button[0].addEventListener('click', () => {
         });
 })
 //密码登录
+let basicURL = 'http://127.0.0.1:5500';
 let account=document.querySelector('.account');
 let password=document.querySelector('.password');
 button[1].addEventListener('click',()=>{
@@ -84,7 +84,7 @@ button[1].addEventListener('click',()=>{
         {
             sessionStorage.setItem('username',account.value);
             sessionStorage.setItem('token',res.data)
-            location.replace('../main/main.html')
+            location.replace(basicURL+'/main/main.html')
         }else{
             location.reload();
         }

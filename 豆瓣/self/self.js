@@ -11,7 +11,6 @@ if (username) {
 let selfinfo1 = JSON.parse(sessionStorage.getItem('selfinfo1')).data;
 let selfinfo2 = JSON.parse(sessionStorage.getItem('selfinfo2')).data;
 let selfinfo3 = JSON.parse(sessionStorage.getItem('selfinfo3')).data;
-// let selfinfo4=JSON.parse(sessionStorage.getItem('selfinfo4')).data;
 //自我介绍
 let selfarea1 = document.querySelector('.dairy');
 let registarea = document.querySelector('.registdate');

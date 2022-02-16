@@ -120,7 +120,7 @@ filecomments.forEach(item => {
     star1.create();
 })
 //讨论区
-let basicURL='';
+let basicURL='http://127.0.0.1:5500';
 let btns = document.getElementsByTagName('button');
 console.log(btns[1].innerHTML);
 btns[2].addEventListener('click', () => {

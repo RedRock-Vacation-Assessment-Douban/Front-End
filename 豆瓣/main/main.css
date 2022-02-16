@@ -211,7 +211,6 @@ article {
 .screen-hd {
     width: 675px;
     height: 35.57px;
-    /* background-color: rebeccapurple; */
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 17px;
 }
@@ -228,6 +227,7 @@ article {
 }
 
 /* 热映轮播图 */
+/* 控制器3的样式 */
 #count {
     float: right;
     font-size: 12px;
@@ -236,7 +236,29 @@ article {
     color: #666;
 }
 
+/* 控制器2的样式 */
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #D8D8D8;
+    border-radius: 50%;
+    margin-right: 5px;
+}
 
+.dotchange {
+    background-color: #6198D7;
+}
+
+.slider-control2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 131px;
+    height: 24.2px;
+    margin: 0 auto;
+}
+/* 控制器1的样式 */
 .slider-control {
     float: right;
     width: 46px;
@@ -259,14 +281,15 @@ article {
     background-position: -18px 0;
 }
 
-.slider {
-    overflow: hidden;
-    position: relative;
-    width: 675px;
-    height: 270px;
+/* 轮播图01的内置样式 */
+.plugin1_1 {
+    float: right;
 }
-
-#container li {
+.plugin1_2 {
+    float: right;
+    margin-right: 10px;
+}
+#slider1li {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -276,24 +299,21 @@ article {
     height: 270px;
     padding-right: 25px;
 }
-
-#container {
-    position: absolute;
-    left: 0;
-    height: 270px;
-    /* background-color: bisque; */
-    transition: all ease 1s;
-}
-
-#container li img {
+.slider1img {
     width: 115px;
     height: 161px;
 }
-
-#container li span {
+.slider1div {
+    display: flex;
     font-size: 12px;
+    width: 115px;
+    justify-content: center;
 }
-
+.scorespan {
+    color: #e09015;
+    font-size: 12px;
+    margin-left: 2px;
+}
 .buy {
     display: inline-block;
     width: 90px;
@@ -373,81 +393,26 @@ article {
     color: #ffffff;
 }
 
-.list-wp {
-    position: relative;
-    width: 675px;
-    height: 426.2px;
-    overflow: hidden;
-    /* background-color: cyan; */
-}
-
-#container2 {
-    height: 426.2px;
-    width: 4200px;
-    position: absolute;
-    left: 0;
-    transition: all ease 1s;
-}
-
-#container2orgin {
-    float: left;
-    font-size: 0;
-    height: 426.2px;
-    width: 3500px;
-    /* background-color: seagreen; */
-}
-
-#container2clone {
-    float: left;
-    height: 426.2px;
-    width: 700px;
-    /* background-color: paleturquoise; */
-}
-
-#container3 {
-    height: 426.2px;
-    width: 4200px;
-    position: absolute;
-    left: 0;
-    transition: all ease 1s;
-}
-
-#container3orgin {
-    float: left;
-    font-size: 0;
-    height: 426.2px;
-    width: 3500px;
-    /* background-color: seagreen; */
-}
-
-#container3clone {
-    float: left;
-    height: 426.2px;
-    width: 700px;
-    /* background-color: paleturquoise; */
-}
-
-.clone-a {
+/* 轮播图0203的内层样式 */
+#slider2a {
     display: inline-block;
     width: 115px;
     height: 190px;
     margin: 0 25px 10px 0;
-    /* background-color: blanchedalmond; */
 }
 
-.clone-img {
+.slider2img {
     width: 115px;
     height: 161px;
-    /* background-color: rebeccapurple; */
 }
 
-.clone-div {
+.slider2div {
     margin-top: 5px;
     width: 115px;
     text-align: center;
 }
 
-.clone-span1 {
+.slider2span1 {
     display: inline-block;
     width: 115px;
     height: 20px;
@@ -456,31 +421,9 @@ article {
     font-size: 13px;
 }
 
-.clone-span2 {
+.slider2span2 {
     color: #e09015;
     font-size: 13px;
-}
-
-.slider-control2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 131px;
-    height: 24.2px;
-    margin: 0 auto;
-}
-
-.dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #D8D8D8;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
-.dotchange {
-    background-color: #6198D7;
 }
 
 /* 热门推荐轮播图 */
@@ -501,28 +444,16 @@ article {
     font-size: 16px;
 }
 
-.gallery-slider {
-    overflow: hidden;
-    width: 675px;
-    height: 240px;
-    position: relative;
-}
 
-#gallery {
-    height: 240px;
-    /* width: 6075px; */
-    position: absolute;
-    left: 0;
-}
-
-#gallery li {
+/* 轮播图04的内层样式 */
+#slider4li {
     float: left;
     font-size: 0;
     width: 675px;
     height: 240px;
 }
 
-#gallery li img {
+.slider4img {
     float: left;
     width: 350px;
     height: 240px;
@@ -546,6 +477,13 @@ article {
     font-size: 13px;
     color: #999;
     line-height: 20px;
+}
+.plugin4_1 {
+    float: right;
+}
+.plugin4_2 {
+    float: right;
+    margin-right: 10px;
 }
 /* 影评 */
 .reviews {

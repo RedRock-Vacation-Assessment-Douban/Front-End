@@ -169,6 +169,7 @@ button {
     font-size: 13px;
     margin-top: 20px;
     line-height: 25px;
+    overflow: hidden;
 }
 
 /* 演员 */

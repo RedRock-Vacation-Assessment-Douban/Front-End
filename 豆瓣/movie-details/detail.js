@@ -120,7 +120,7 @@ filecomments.forEach(item => {
     star1.create();
 })
 //讨论区
-let basicURL='http://127.0.0.1:5500';
+let basicURL='';
 let btns = document.getElementsByTagName('button');
 console.log(btns[1].innerHTML);
 btns[2].addEventListener('click', () => {
@@ -162,6 +162,7 @@ Array.from(tomark1.stars).map(star=>star.addEventListener('click',()=>{
     smalltips.innerHTML='添加收藏：我看过这部电影';
     havewatch.checked='checked';
     tomark2.num=tomark1.num
+    //手动重新渲染
     tomark2.changeoff();
     tomark1.stop();
 }))

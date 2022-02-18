@@ -54,7 +54,6 @@ per.Award.split('\n').map(item=>{
     award.innerHTML+=`<li>${item}</li>`
 })
 //点击电影查看详情
-let basicURL='';
 let opusli=document.querySelectorAll('.opus li');
 [...opusli].map(item=>{
     item.addEventListener('click',()=>{

@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+@media screen and (max-width: 1024px){
+    body {
+        width: 1024px;
+    }
+}
 body {
     font-size: 13px;
 }

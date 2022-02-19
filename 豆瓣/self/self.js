@@ -66,7 +66,6 @@ async function sendbyfetch() {
 
         res3.data.map((item, index) => {
             let commends = document.querySelectorAll('.commendimg');
-            console.log(commends[index]);
             commends[index].addEventListener('click', () => {
                 sessionStorage.setItem('movieid', item.MovieId)
                 window.open('/movie-details/build01/detail.html')

@@ -150,13 +150,14 @@ window.onload = async function () {
             method: 'GET',
         }).then(res => res.json())
         .then(res => {
+            console.log(res);
             res.data.map(item => {
                 reviewarea.innerHTML +=
                     `<div class="review">
-            <img src="${item.URL}" alt="">
+            <img src="${item.URL}" alt="" class="mymovies">
             <div class="review-bd">
             <div class="bigtitle">
-            <a href="#">${item.Context.split('，')[0]}</a>
+            <a href="#" class="mymoviecommend">${item.Context.split(/[，。]/)[0]}</a>
             </div>
         <div class="review-meta">
         <a href="#">${item.Name}</a>
@@ -172,7 +173,28 @@ window.onload = async function () {
     </div>`
                 let stars = new Star(`stars${item.Id}`, item.StarNum, 0.5);
                 stars.create();
-
+            })
+            return res;
+        }).then(res=>{
+            let mymovies=document.querySelectorAll('.mymovies');
+            let mymoviecommend=document.querySelectorAll('.mymoviecommend')
+            let allessay=document.querySelectorAll('.allessay')
+            res.data.map((item,index)=>{
+                console.log(item.Id);
+                mymovies[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('movieid',item.MovieId)
+                    window.open('/movie-details/build01/detail.html')
+                })
+                mymoviecommend[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('moviecommendid',item.Id);
+                    sessionStorage.setItem('isdiscuss','false')
+                    window.open('/moviecommend/build/moviecommend.html')
+                })
+                allessay[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('moviecommendid',item.Id);
+                    sessionStorage.setItem('isdiscuss','false')
+                    window.open('/moviecommend/build/moviecommend.html')
+                })
             })
         })
 }

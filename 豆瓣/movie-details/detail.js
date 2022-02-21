@@ -92,13 +92,22 @@ window.onload = async function () {
 
                 disarea.innerHTML +=
                     `<ul>
-                <li><a href='#'>${item.context.split('&')[0]}</a></li>
+                <li><a href='#' class="discussname">${item.context.split('&')[0]}</a></li>
                 <li>${item.comment_num}回应</li>
                 <li>来自<a href='#'>${item.name}</a></li>
                 <li>${item.post_time}</li>
                 </ul>`
             })
-
+            return res;
+        }).then(res=>{
+            let discussname=document.querySelectorAll('.discussname');
+            res.data.map((item,index)=>{
+                discussname[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('discussid',item.id)
+                    sessionStorage.setItem('isdiscuss','true');
+                    window.open('/moviecommend/build/moviecommend.html')
+                })
+            })
         })
     //接受短评数据
     let shortarea = document.getElementsByClassName('short')[0];
@@ -148,7 +157,7 @@ window.onload = async function () {
         <a href="#">${item.name}</a>
         <div id="movie_star${item.id}" class="stars"></div>
         <span class="clock">${item.post_time}</span>
-    <li><a href="#">${item.context.split('，')[0]}</a></li>
+    <li><a href="#" class="moviename">${item.context.split(/[，。？]/)[0]}</a></li>
     <li>${item.context}</li>
     <li>
         <div id="myup">up:<div>${item.likes}</div></div>
@@ -165,6 +174,7 @@ window.onload = async function () {
             let changeup= document.querySelectorAll('#myup div');
             let mydowns = document.querySelectorAll('#mydown');
             let changedown = document.querySelectorAll('#mydown div');
+            let moviecommendname=document.querySelectorAll('.moviename')
             res.data.map((item, index) => {
                   let up= new Updown(myups[index],changeup[index],item.likes,'http://42.192.155.29:8080/filmcomment/likes/'+item.id);
                   let down= new Updown(mydowns[index],changedown[index],item.down,'http://42.192.155.29:8080/filmcomment/down/'+item.id)
@@ -175,6 +185,11 @@ window.onload = async function () {
                     up.remove();
                     down.remove();
                 }
+                moviecommendname[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('moviecommendid',item.id)
+                    sessionStorage.setItem('isdiscuss','false')
+                    window.open('/moviecommend/build/moviecommend.html');
+                })
             })
         })
 

@@ -19,6 +19,7 @@ export class Updown {
         this.changebox.innerHTML = this.num;
         fetch(this.url, {
             method: 'GET'
-        })
+        }).then(res=>res.json())
+        .then(res=>console.log(res.info))
     }
 }
